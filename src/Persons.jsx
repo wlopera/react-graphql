@@ -17,6 +17,15 @@ const FIND_PERSON = gql`
   }
 `;
 
+const divStyle = {
+  display: "flex",
+  flexDirection: "column",
+  justifyContent: "center", // Centra horizontalmente
+  alignItems: "center", // Centra verticalmente
+  backgroundColor: "#DAF7A6",
+  padding: "20px",
+};
+
 export const Persons = ({ persons }) => {
   const [person, setPerson] = useState(null);
   const [getPerson, result] = useLazyQuery(FIND_PERSON);
@@ -33,14 +42,23 @@ export const Persons = ({ persons }) => {
 
   if (person) {
     return (
-      <div>
+      <div style={divStyle}>
         <h2>{person.name}</h2>
         <div>{person.id}</div>
         <div>{person.phone}</div>
         <div>
           {person.address.street} - {person.address.city}
         </div>
-        <button onClick={() => setPerson(null)}>Regresar</button>
+        <button
+          onClick={() => setPerson(null)}
+          style={{
+            marginTop: "20px",
+            width: "200px",
+            backgroundColor: "lightgreen",
+          }}
+        >
+          Regresar
+        </button>
       </div>
     );
   }
@@ -50,16 +68,7 @@ export const Persons = ({ persons }) => {
   }
 
   return (
-    <div
-      style={{
-        display: "flex",
-        flexDirection: "column",
-        justifyContent: "center", // Centra horizontalmente
-        alignItems: "center", // Centra verticalmente
-        backgroundColor: "#DAF7A6",
-        padding: "20px",
-      }}
-    >
+    <div style={divStyle}>
       <h1>Personas Graphql</h1>
       <ul>
         {persons.map((person, index) => (

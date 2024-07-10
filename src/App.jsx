@@ -2,8 +2,10 @@
 import { gql, useQuery } from "@apollo/client";
 import "./App.css";
 import { Persons } from "./Persons";
+import { PersonForm } from "./PersonForm";
 
-const ALL_PERSONS = gql`
+// eslint-disable-next-line react-refresh/only-export-components
+export const ALL_PERSONS = gql`
   query {
     allPersons {
       id
@@ -39,6 +41,8 @@ function App() {
 
   // }, [])
 
+  //const { loading, data, error } = useQuery(ALL_PERSONS, { pollInterval: 2000 });
+
   const { loading, data, error } = useQuery(ALL_PERSONS);
 
   if (error) {
@@ -46,7 +50,10 @@ function App() {
   }
 
   return (
-    <>{loading ? <p>Cargando...</p> : <Persons persons={data?.allPersons} />}</>
+    <>
+      {loading ? <p>Cargando...</p> : <Persons persons={data?.allPersons} />}
+      <PersonForm />{" "}
+    </>
   );
 }
 
