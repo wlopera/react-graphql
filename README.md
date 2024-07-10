@@ -14,6 +14,8 @@ Revisar el documento del proyecto graphql-server: graphql-server.doc
 
 ## Documentación
 
+Ver Proyecto Graphql-Server: https://github.com/wlopera/graphql-server
+
 Puedes ver el documento completo del proyecto en formato PDF desde el siguiente enlace:
 
 <a href="https://github.com/wlopera/react-graphql/blob/f86be9e95f64f0562186affa8c91e648c802291b/src/doc/react-graphql.pdf" target="_blank">Ver el PDF del proyecto</a>
