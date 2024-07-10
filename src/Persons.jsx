@@ -1,62 +1,35 @@
 /* eslint-disable react/prop-types */
+import { useState } from "react";
+import { usePerson } from "./persons/custom-hooks.js";
 
-import { gql, useLazyQuery } from "@apollo/client";
-import { useEffect, useState } from "react";
-
-const FIND_PERSON = gql`
-  query findQueryByName($nameToSearch: String!) {
-    findPerson(name: $nameToSearch) {
-      id
-      name
-      phone
-      address {
-        street
-        city
-      }
-    }
-  }
-`;
-
-const divStyle = {
-  display: "flex",
-  flexDirection: "column",
-  justifyContent: "center", // Centra horizontalmente
-  alignItems: "center", // Centra verticalmente
-  backgroundColor: "#DAF7A6",
-  padding: "20px",
-};
+import "./App.css";
 
 export const Persons = ({ persons }) => {
   const [person, setPerson] = useState(null);
-  const [getPerson, result] = useLazyQuery(FIND_PERSON);
+  const [getPerson] = usePerson();
 
-  useEffect(() => {
-    if (result.data) {
-      setPerson(result.data.findPerson);
-    }
-  }, [result]);
+  // const [getPerson, result] = usePerson();
+  // useEffect(() => {
+  //   if (result.data) {
+  //     setPerson(result.data.findPerson);
+  //   }
+  // }, [result]);
 
-  const handlePerson = (name) => {
-    getPerson({ variables: { nameToSearch: name } });
+  const handlePerson = async (name) => {
+    const data = await getPerson({ variables: { nameToSearch: name } });
+    setPerson(data.data.findPerson);
   };
 
   if (person) {
     return (
-      <div style={divStyle}>
+      <div className="person-container">
         <h2>{person.name}</h2>
         <div>{person.id}</div>
         <div>{person.phone}</div>
         <div>
           {person.address.street} - {person.address.city}
         </div>
-        <button
-          onClick={() => setPerson(null)}
-          style={{
-            marginTop: "20px",
-            width: "200px",
-            backgroundColor: "lightgreen",
-          }}
-        >
+        <button onClick={() => setPerson(null)} className="person-botton-add">
           Regresar
         </button>
       </div>
@@ -68,13 +41,13 @@ export const Persons = ({ persons }) => {
   }
 
   return (
-    <div style={divStyle}>
+    <div className="person-container">
       <h1>Personas Graphql</h1>
       <ul>
         {persons.map((person, index) => (
           <li
             key={index}
-            style={{ textAlign: "start" }}
+            className="person-li"
             onClick={() => handlePerson(person.name)}
           >
             {person.name} - {person.phone}

@@ -13,8 +13,6 @@ const GRAPHQL_URI = import.meta.env.VITE_GRAPHQL_URI;
 const CONNECT_TO_DEV_TOOLS = import.meta.env.VITE_CONNECT_TO_DEV_TOOLS;
 
 // console.log('GraphQL URI:', GRAPHQL_URI);
-
-// Debo pasar esa uri a variables de ambiente
 const client = new ApolloClient({
   connectToDevTools: CONNECT_TO_DEV_TOOLS,
   cache: new InMemoryCache(),

@@ -40,3 +40,78 @@
 .read-the-docs {
   color: #888;
 }
+
+.person-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center; 
+  align-items: center; 
+  background-color: #DAF7A6;
+  padding: 20px;
+}
+
+.person-botton-add {
+  margin-top: 20px;
+  width: 200px;
+  background-color: lightgreen
+}
+
+.person-li {
+  text-align: start
+}
+
+.personForm-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background-color: #CCD1D1;
+  padding: 20px;
+  margin-top: 20px;
+}
+
+.personForm-form {
+  display: flex;
+  flex-direction: column;
+  width: 40vh;
+}
+
+.personForm-input {
+   margin-bottom: 5px
+}
+
+.notify-container {
+  background-color: rgb(235, 37, 37);
+  color: white;
+  font-size: 14;
+  font-weight: 300;
+  align-self: flex-start;
+  margin-left: 70px;
+  margin-bottom: 10px;
+}
+
+.personPhone-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background-color: #CCD1D1;
+  padding: 20px;
+  margin-top: 20px;
+}
+
+.personPhone-form {
+  display: flex;
+  flex-direction: column;
+  width: 40vh;
+}
+
+.personPhone-input {
+   margin-bottom: 5px
+}
+
+.personPhone-botton-edit {
+  margin-top: 10px;
+  width: 280px;
+  background-color: lightseagreen;
+}

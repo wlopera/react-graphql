@@ -1,23 +1,10 @@
 // import { useEffect } from 'react'
-import { gql, useQuery } from "@apollo/client";
-import "./App.css";
+import { usePersons } from "./persons/custom-hooks";
 import { Persons } from "./Persons";
 import { PersonForm } from "./PersonForm";
 
-// eslint-disable-next-line react-refresh/only-export-components
-export const ALL_PERSONS = gql`
-  query {
-    allPersons {
-      id
-      name
-      phone
-      address {
-        street
-        city
-      }
-    }
-  }
-`;
+import "./App.css";
+import { PhoneForm } from "./PhoneForm";
 
 function App() {
   // useEffect(() => {
@@ -43,7 +30,7 @@ function App() {
 
   //const { loading, data, error } = useQuery(ALL_PERSONS, { pollInterval: 2000 });
 
-  const { loading, data, error } = useQuery(ALL_PERSONS);
+  const { loading, data, error } = usePersons();
 
   if (error) {
     return <span style={{ color: "red" }}>{error}</span>;
@@ -52,7 +39,8 @@ function App() {
   return (
     <>
       {loading ? <p>Cargando...</p> : <Persons persons={data?.allPersons} />}
-      <PersonForm />{" "}
+      <PhoneForm />
+      <PersonForm />
     </>
   );
 }
