@@ -1,21 +1,27 @@
-import ReactDOM from 'react-dom/client'
-import App from './App.jsx'
-import {ApolloClient, ApolloProvider, HttpLink, InMemoryCache} from '@apollo/client'
+import ReactDOM from "react-dom/client";
+import App from "./App.jsx";
+import {
+  ApolloClient,
+  ApolloProvider,
+  HttpLink,
+  InMemoryCache,
+} from "@apollo/client";
 
-import './index.css'
+import "./index.css";
 
 const GRAPHQL_URI = import.meta.env.VITE_GRAPHQL_URI;
+const CONNECT_TO_DEV_TOOLS = import.meta.env.VITE_CONNECT_TO_DEV_TOOLS;
 
 // console.log('GraphQL URI:', GRAPHQL_URI);
 
 // Debo pasar esa uri a variables de ambiente
 const client = new ApolloClient({
+  connectToDevTools: CONNECT_TO_DEV_TOOLS,
   cache: new InMemoryCache(),
   link: new HttpLink({
-    uri: GRAPHQL_URI
-  })
-})
-
+    uri: GRAPHQL_URI,
+  }),
+});
 
 // const request = gql`
 //   query {
@@ -35,8 +41,8 @@ const client = new ApolloClient({
 //   .then(response => console.log("Respuesta de graphql:", response.data))
 //   .catch((error) => console.error("Error en la consulta GraphQL:", error));
 
-ReactDOM.createRoot(document.getElementById('root')).render(
+ReactDOM.createRoot(document.getElementById("root")).render(
   <ApolloProvider client={client}>
     <App />
-  </ApolloProvider>,
-)
+  </ApolloProvider>
+);
