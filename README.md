@@ -1,8 +1,13 @@
-# React + Vite
+# React + Grpahlql
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Aplicación de React para consumo de servicios de Graphql Server
 
-Currently, two official plugins are available:
+Aplicación de React para consumir APIs mediante el servicio Graphql
+Revisar el documento del proyecto graphql-server: graphql-server.doc 
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+![image](https://github.com/wlopera/react-graphql/assets/7141537/5db75fd8-2c57-469a-ac94-af9343eb40b1)
+
+* Click en usuario de nombre Neymar
+
+![image](https://github.com/wlopera/react-graphql/assets/7141537/5bfe2ba9-5fa2-434d-aaaa-9b834e2d9a34)
+
